@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools<=72.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gghead_jittor"
+version = "0.0.1"
+description = "Jittor version of GGHead: Fast and Generalizable 3D Gaussian Heads"
+authors = [
+    { name = "Tobias Kirschstein", email = "tobias.kirschstein@gmail.com" },
+]
+readme = "README.md"
+license = { text = "Apache 2.0" }
+requires-python = ">=3.8.0"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "numpy",
+    "trimesh",
+    "dreifus",
+    "elias",
+    "environs",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+dev = [
+]
+
+[project.scripts]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["gghead_jittor*"]

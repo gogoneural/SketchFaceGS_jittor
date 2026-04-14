@@ -1,0 +1,75 @@
+# ============================================================
+# Model weights (download separately via scripts/download_weights.sh)
+# ============================================================
+*.pkl
+*.pth
+*.pt
+*.tar
+*.onnx
+*.npz
+*.bin
+*.whl
+*.whl.part
+
+# ============================================================
+# Generated / temporary
+# ============================================================
+__pycache__/
+*.pyc
+*.pyo
+gradio_tmp/
+temp_debug/
+test_output/
+exported_gghead/
+torch_extensions_cache/
+*.bak
+*.log
+.gradio/
+
+# ============================================================
+# Data and outputs (not versioned)
+# ============================================================
+checkpoints/
+output/
+outputs/
+data/
+
+# Weight files inside src/ (download separately)
+src/models/libs/sketch_model/*.pth
+src/models/libs/sketch_model/*.t7
+src/models/libs/sketch_model/checkpoints/
+src/models/libs/sketch_model/face_getsketch_test/
+
+# Assets weight files (download separately)
+assets/*.pkl
+assets/*.pth
+assets/*.pt
+assets/*.onnx
+!assets/gghead_config.pkl
+
+# ============================================================
+# Large third-party assets (not versioned — see download_weights.sh)
+# ============================================================
+# gghead: face_utils model data (FLAME, BFM) and ONNX weights
+third_party/gghead-master/gghead-master/src/gghead_jittor/face_utils/data/
+third_party/gghead-master/gghead-master/src/gghead/
+third_party/gghead-master/gghead-master/assets/*.onnx
+third_party/gghead-master/gghead-master/assets/BFM/
+third_party/gghead-master/gghead-master/GGHEAD_MODELS_PATH/
+third_party/gghead-master/gghead-master/gaussian-splatting-main/
+
+# LHM: DINOv2 weight files only (backbones.py and other code must stay)
+third_party/LHM/models/encoders/dinov2/hub/*.pkl
+third_party/LHM/models/encoders/dinov2/hub/*.pth
+
+# Unused third-party libraries
+third_party/eg3d-main/
+third_party/pix2pixHD/
+third_party/Deep3DFaceRecon/
+
+# ============================================================
+# OS / IDE
+# ============================================================
+.DS_Store
+.vscode/
+*.swp

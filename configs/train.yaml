@@ -1,0 +1,55 @@
+# Train configuration for SketchFaceGS
+
+
+TRAIN:
+  EXP_STR: "sketchface_experiment"
+  TIME_STR: null
+  TRAIN_ITER: 100000
+  CHECK_INTERVAL: 100
+  gan: false
+  fusion: true
+OPTIMIZE:
+  LEARNING_RATE: 0.000001
+  LR_DECAY_RATE: 0.1
+  LR_DECAY_ITER: 100000
+
+MODEL:
+  EMB_DIM: 512
+  # camera pivot used by rand_c2w / other utilities
+  cam_pivot: [0.0, 0.0, 0.175]
+  # Transformer settings for sketch and color branches
+  sketch_transformer:
+    layers: 8
+    heads: 8
+  color_transformer:
+    layers: 3
+    heads: 8
+
+# Optional: add other hyperparameters (z_dim, resolution, gaussian settings) as needed
+# 训练参数配置
+batch_size: 1
+epochs: 10
+data_len: 1000
+master_addr: localhost
+master_port: 12355
+world_size: null
+image_shape: [3, 256, 256]
+PRECISION: fp32
+
+# ============ 编辑相关超参 ============
+EDIT:
+  # --- 线稿→mask 膨胀 ---
+  # 笔画 mask 膨胀核大小(px)。越大→单笔影响范围越大(粗放)；越小→编辑更精细但可能遗漏边缘Gaussian
+  sketch_mask_dilate_size: 20
+  # 膨胀迭代次数。总膨胀半径 ≈ size × iters。越多→覆盖面越大
+  sketch_mask_dilate_iters: 2
+
+  # --- mask→UV 映射阈值 ---
+  # 选中"被mask覆盖的Gaussian"的权重阈值。越小→UV编辑区域越大；越大→只选强覆盖点，区域更小
+  uv_select_thresh: 0.1
+  # 排除"确定不在mask内的Gaussian"的权重阈值。越大→保留UV区域更大；越小→最终UV mask更紧凑
+  uv_exclude_thresh: 0.9
+
+  # --- UV mask 膨胀 ---
+  # UV空间mask膨胀(px)。越大→边界更宽松避免接缝；越小→更精准但可能有边缘锯齿
+  uv_mask_dilate_size: 25 
