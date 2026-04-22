@@ -1,5 +1,6 @@
 # [CVPR 2026 Highlight] SketchFaceGS: Real-Time Sketch-Driven Face Editing and Generation with Gaussian Splatting
 
+<a href="http://arxiv.org/abs/2604.19202"><img src="https://img.shields.io/badge/Paper-arXiv-red" alt="Paper"></a>
 <a href="https://huggingface.co/Junxiang123/SketchFaceGS_jittor"><img src="https://img.shields.io/badge/Weights-HuggingFace-yellow" alt="Weights"></a>
 <a href="https://jittor.org"><img src="https://img.shields.io/badge/Framework-Jittor-blue" alt="Jittor"></a>
 
